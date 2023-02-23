@@ -1,10 +1,10 @@
-# GitHub Action for Container Registry
+# GitHub Action for GCP Registries
 
-A GitHub action that builds your docker image and pushes it to Container Registry.
+A GitHub action that builds your docker image and pushes it to container or artifact
 
 ## Prerequisites
 
-- you have enabled Container Registry in your Google Cloud project 
+- you have enabled the Registry in your Google Cloud project 
 - you have a service account with Storage Admin permissions
 
 ## Usage
