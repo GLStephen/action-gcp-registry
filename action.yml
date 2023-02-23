@@ -29,6 +29,9 @@ inputs:
   build_args:
     description: 'list of build args that will be passed to docker build'
     required: false
+  additional_tag:
+    description: 'An additional tag applied to the image'
+    required: true     
 runs:
   using: 'docker'
   image: 'Dockerfile'
