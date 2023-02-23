@@ -2,7 +2,8 @@
 
 set -e
 
-echo "$INPUT_SERVICE_ACCOUNT_KEY" > "$HOME"/gcloud.json
+# printenv stops certain abberant behaviors of writing the key, like control characters
+printenv INPUT_SERVICE_ACCOUNT_KEY > "$HOME"/gcloud.json
 
 cat "$HOME"/gcloud.json
 
