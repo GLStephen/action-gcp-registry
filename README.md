@@ -9,6 +9,8 @@ A GitHub action that builds your docker image and pushes it to container or arti
 
 ## Usage
 
+Note: you must checkout the code prior to this step for code to be available
+
 ```bash
 - name: Build and publish image to GCR
   uses: glstephen/action-gcp-registry@v1.0
