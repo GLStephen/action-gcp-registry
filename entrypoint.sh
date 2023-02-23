@@ -7,8 +7,8 @@ printenv INPUT_SERVICE_ACCOUNT_KEY > "$HOME"/gcloud.json
 
 cat "$HOME"/gcloud.json
 
-ls /
-ls ./
+ls /github
+ls /github/workspace
 
 if [ -z "$INPUT_CONTEXT" ]; then
     INPUT_CONTEXT="."
