@@ -28,9 +28,10 @@ echo "Pushing $INPUT_IMAGE"
 #docker push $INPUT_IMAGE
 
 if [ "$INPUT_ADDITIONAL_TAG" ]; then   
-    tagset=${$INPUT_ADDITIONAL_TAG//;/$'\n'} 
+    my_string=$INPUT_ADDITIONAL_TAG
+    IFS=';' read -ra tags <<< "$my_string"
     echo "Applying $INPUT_ADDITIONAL_TAG Additional Tag to $INPUT_IMAGE"
-    for tag in $tagset
+    for i in "${tags[@]}"
     do
         docker tag $INPUT_IMAGE $INPUT_IMAGE:$TAG
     done
