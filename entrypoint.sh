@@ -27,9 +27,13 @@ docker build -f "$INPUT_DOCKERFILE" -t "$INPUT_IMAGE" $BUILD_ARGS "$INPUT_CONTEX
 echo "Pushing $INPUT_IMAGE"
 #docker push $INPUT_IMAGE
 
-if [ "$INPUT_ADDITIONAL_TAG" ]; then
+if [ "$INPUT_ADDITIONAL_TAG" ]; then   
+    tagset=${INPUT_ADDITIONAL_TAG//;/$'\n'} 
     echo "Applying $INPUT_ADDITIONAL_TAG Additional Tag to $INPUT_IMAGE"
-    docker tag $INPUT_IMAGE $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG
+    for tag in $tagset
+    do
+        docker tag $INPUT_IMAGE $INPUT_IMAGE:$TAG
+    done
     echo "Pushing $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG"
     #docker push $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG
 fi
