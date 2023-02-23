@@ -28,7 +28,7 @@ echo "Pushing $INPUT_IMAGE"
 #docker push $INPUT_IMAGE
 
 if [ "$INPUT_ADDITIONAL_TAG" ]; then   
-    tagset=${INPUT_ADDITIONAL_TAG//;/$'\n'} 
+    tagset=${$INPUT_ADDITIONAL_TAG//;/$'\n'} 
     echo "Applying $INPUT_ADDITIONAL_TAG Additional Tag to $INPUT_IMAGE"
     for tag in $tagset
     do
