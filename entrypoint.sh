@@ -5,7 +5,7 @@ set -e
 # printenv stops certain abberant behaviors of writing the key, like control characters
 printenv INPUT_SERVICE_ACCOUNT_KEY > "$HOME"/gcloud.json
 
-cat "$HOME"/gcloud.json
+echo $GITHUB_WORKSPACE
 
 ls /github
 ls /github/workspace
