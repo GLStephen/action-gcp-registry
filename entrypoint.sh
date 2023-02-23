@@ -5,11 +5,6 @@ set -e
 # printenv stops certain abberant behaviors of writing the key, like control characters
 printenv INPUT_SERVICE_ACCOUNT_KEY > "$HOME"/gcloud.json
 
-echo $GITHUB_WORKSPACE
-
-ls /github
-ls /github/workspace
-
 if [ -z "$INPUT_CONTEXT" ]; then
     INPUT_CONTEXT="."
 fi
@@ -25,7 +20,7 @@ fi
 
 gcloud auth activate-service-account --key-file="$HOME"/gcloud.json --project "$INPUT_PROJECT_ID"
 
-gcloud auth configure-docker us-east4-docker.pkg.dev
+gcloud auth configure-docker INPUT_REGISTRY_DOMAIN
 
 gcloud artifacts locations list
 
