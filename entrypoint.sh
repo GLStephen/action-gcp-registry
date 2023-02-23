@@ -7,6 +7,9 @@ printenv INPUT_SERVICE_ACCOUNT_KEY > "$HOME"/gcloud.json
 
 cat "$HOME"/gcloud.json
 
+ls /
+ls ./
+
 if [ -z "$INPUT_CONTEXT" ]; then
     INPUT_CONTEXT="."
 fi
