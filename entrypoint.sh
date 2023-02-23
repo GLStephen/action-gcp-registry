@@ -20,7 +20,7 @@ fi
 
 gcloud auth activate-service-account --key-file="$HOME"/gcloud.json --project "$INPUT_PROJECT_ID"
 
-gcloud auth configure-docker $INPUT_REGISTRY_SERVER
+gcloud auth configure-docker $INPUT_REGISTRY_SERVER --quiet
 
 docker build -f "$INPUT_DOCKERFILE" -t "$INPUT_IMAGE" $BUILD_ARGS "$INPUT_CONTEXT" $TARGET
 
