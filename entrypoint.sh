@@ -33,3 +33,5 @@ if [ "$INPUT_ADDITIONAL_TAG" ]; then
     echo "Pushing $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG"
     docker push $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG
 fi
+
+docker images
