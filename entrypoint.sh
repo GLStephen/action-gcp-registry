@@ -2,7 +2,7 @@
 
 set -e
 
-echo "$INPUT_SERVICE_ACCOUNT_KEY" | base64 --decode > "$HOME"/gcloud.json
+echo "$INPUT_SERVICE_ACCOUNT_KEY" > "$HOME"/gcloud.json
 
 if [ -z "$INPUT_CONTEXT" ]; then
     INPUT_CONTEXT="."
