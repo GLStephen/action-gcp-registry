@@ -17,6 +17,9 @@ inputs:
   service_account_key:
     description: 'GCP service key with storage and GCR permissions'
     required: true
+  registry_server:
+    description: 'Server for the Registry i.e. us-east4-docker.pkg.dev'
+    required: true    
   context:
     description: 'path to the build context, defaults to . if not provided'
     required: false
