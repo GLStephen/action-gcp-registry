@@ -24,4 +24,8 @@ gcloud auth configure-docker $INPUT_REGISTRY_SERVER
 
 docker build -f "$INPUT_DOCKERFILE" -t "$INPUT_IMAGE" $BUILD_ARGS "$INPUT_CONTEXT" $TARGET
 
+if [ "$INPUT_ADDITIONAL_TAG" ]; then
+    docker tag $INPUT_IMAGE $INPUT_ADDITIONAL_TAG
+fi
+
 docker push $INPUT_IMAGE
