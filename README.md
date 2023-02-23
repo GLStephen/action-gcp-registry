@@ -11,7 +11,7 @@ A GitHub action that builds your docker image and pushes it to container or arti
 
 ```bash
 - name: Build and publish image to GCR
-  uses: carbonchain/action-container-registry@v1.1
+  uses: glstephen/action-gcp-registry@v1.0
   with:
     project_id: [your-project]
     dockerfile: [path-to-your-dockerfile]
