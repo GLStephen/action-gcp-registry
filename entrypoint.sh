@@ -28,7 +28,7 @@ if [ "$INPUT_TRACKING_TAG" ]; then
     echo "Setting Tag $INPUT_IMAGE $INPUT_IMAGE:$INPUT_TRACKING_TAG"
     docker tag $INPUT_IMAGE $INPUT_IMAGE:$INPUT_TRACKING_TAG 
     # useful to have the first tag as the 
-    echo "$INPUT_IMAGE $INPUT_IMAGE:$tag" >> $GITHUB_OUTPUT
+    echo "$INPUT_IMAGE $INPUT_IMAGE:$INPUT_TRACKING_TAG" >> $GITHUB_OUTPUT
 fi
 
 if [ "$INPUT_ADDITIONAL_TAG" ]; then   
