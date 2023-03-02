@@ -24,6 +24,13 @@ gcloud auth configure-docker $INPUT_REGISTRY_SERVER --quiet
 
 docker build -f "$INPUT_DOCKERFILE" -t "$INPUT_IMAGE" $BUILD_ARGS "$INPUT_CONTEXT" $TARGET
 
+if [ "$INPUT_TRACKING_TAG" ]; then  
+    echo "Setting Tag $INPUT_IMAGE $INPUT_IMAGE:$INPUT_TRACKING_TAG"
+    docker tag $INPUT_IMAGE $INPUT_IMAGE:$INPUT_TRACKING_TAG 
+    # useful to have the first tag as the 
+    echo "$INPUT_IMAGE $INPUT_IMAGE:$tag" >> $GITHUB_OUTPUT
+fi
+
 if [ "$INPUT_ADDITIONAL_TAG" ]; then   
     my_string=$INPUT_ADDITIONAL_TAG
     IFS=';' read -ra tags <<< "$my_string"
@@ -31,7 +38,7 @@ if [ "$INPUT_ADDITIONAL_TAG" ]; then
     for tag in "${tags[@]}"
     do
         echo "Setting Tag $INPUT_IMAGE $INPUT_IMAGE:$tag"
-        docker tag $INPUT_IMAGE $INPUT_IMAGE:$tag
+        docker tag $INPUT_IMAGE $INPUT_IMAGE:$tag      
     done
     #docker push $INPUT_IMAGE:$INPUT_ADDITIONAL_TAG
 fi
